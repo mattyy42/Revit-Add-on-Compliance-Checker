@@ -1,0 +1,15 @@
+walls=FilteredElementCollector(doc)
+walls.OfCategory(BuiltInCategory.OST_Walls)
+walls.WhereElementIsNotElementType()
+
+def Calculate_smallest_wall():
+	Total_Width=0.0
+	Length_of_wall=[]
+	for wall in walls:
+		#print (wall)
+		Spesfic_Length=wall.LookupParameter('Length')
+		if Spesfic_Length:
+			Length_of_wall.append(Spesfic_Length.AsDouble())
+	Minimum_Length_Wall=min(Length_of_wall)
+	print(Minimum_Length_Wall)
+	
